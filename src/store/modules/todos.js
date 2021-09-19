@@ -1,5 +1,6 @@
 import MUTATIONS from "../MUTATIONS";
 import ACTIONS from "../ACTIONS";
+import STORAGE_KEYS from "@/common/enums/STORAGE_KEYS";
 
 export default {
     state: {
@@ -51,7 +52,7 @@ export default {
     },
     actions: {
         [ACTIONS.TODO_INIT] ({commit}) {
-            let localTodos = localStorage.getItem('todos');
+            let localTodos = localStorage.getItem(STORAGE_KEYS.TODOS);
             let todos = localTodos ? JSON.parse(localTodos) : [];
             commit(MUTATIONS.TODO_INIT, todos);
         },
